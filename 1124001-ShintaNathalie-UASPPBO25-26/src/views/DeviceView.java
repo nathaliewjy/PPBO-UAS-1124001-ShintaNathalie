@@ -46,7 +46,7 @@ public class DeviceView {
     }
 
     // menu1
-    public void menuTambahDevice() throws InvalidOSException {
+    public void menuTambahDevice() throws InvalidOSException, InvalidMenuException {
         try {
             String namaPemilik = CLIUtil.askForString("Nama pemilik : ");
             int tipeOS = CLIUtil.askForInt("OS : 1. Windows 2. Ubuntu 3. Fedora");
@@ -58,11 +58,15 @@ public class DeviceView {
 
             switch (tipeOS) {
                 case 1:
-                   this.deviceController.addDevice(namaPemilik, os, version);
+                   this.deviceController.addDevice(namaPemilik, "Windows", version);
                    break;
                 case 2:
-                    this.deviceController.addDevice(namaPemilik, os, );
+                    this.deviceController.addDevice(namaPemilik, os, version);
             }
+        } catch (InvalidMenuException e) {
+            System.out.println("Menu salah");
+        } catch (InvalidOSException e) {
+            System.out.println("OS salah");
         }
     }
 

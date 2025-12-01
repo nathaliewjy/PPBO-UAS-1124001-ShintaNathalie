@@ -9,8 +9,9 @@ import java.util.List;
 
 import static java.lang.StringUTF16.compareTo;
 
-public class DeviceController {
+public class DeviceController implements IDeviceController {
     private IDeviceRepo deviceRepo;
+
 
     public DeviceController(IDeviceRepo deviceRepo) {
         this.deviceRepo = deviceRepo;
